@@ -17,8 +17,15 @@ public class GreetingController {
 		return new Greeting(counter.incrementAndGet(), String.format(template, name));	
 	}
 	
+	// http://localhost:8080/areaQuadrado?lado=2
 	@RequestMapping("/areaQuadrado")
 	public Integer areaQuadrado(@RequestParam(value = "lado") Integer lado) {
 		return lado * lado;	
+	}
+	
+	// http://localhost:8080/areaRetangulo?lado1=2&lado2=3
+	@RequestMapping("/areaRetangulo")
+	public Integer areaRetangulo(@RequestParam(value = "lado1") Integer lado1, @RequestParam(value = "lado2") Integer lado2) {
+		return lado1 * lado2;	
 	}
 }
